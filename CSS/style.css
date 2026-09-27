@@ -1,0 +1,242 @@
+*{
+   box-sizing: border-box; /* Box-sizing chnges how the total width and height of an HTML element are calculated*/
+
+}
+
+/*---USING SAME STYLE CSS FOR BOTH THE PAGES---*/
+
+/* using font-size in pixels is a bad practice (using font-size is itself not practical)
+instead use rem (Root Em) unit [1 rem = 16px] */
+/* default font-size is 16px  */
+/* if we specify the font size in html tag as 30 pixels and
+font size in h1 separately as 1 rem -- then 1 rem becomes 30 pixels -- genrally this is not practised */
+
+body{
+    background-color: rgb(211, 209, 209);
+    color:black;
+    line-height:1.4 ;  /* space between text lines -- defualt is 1.6 */
+}
+
+/*header{
+    text-align:center
+}*/
+
+h1{
+    /* background-color:rgb(175, 181, 146); */
+    color:rgb(4, 18, 52);
+    font-size: 3rem;
+    font-family:sans-serif;
+    text-align:center;
+    line-height: 1.1;
+    @media(width>720px){ /*this will prevent the h1 from looking too big when the screen size is reduced-- rather it reduces its size to 4rem for etter visuals*/
+        font-size:6rem;
+    }
+}
+.H{ /*For 2nd page*/
+    font-size:5rem;
+}
+
+h2{
+    /* background-color:rgb(131, 141, 113) ; */
+    color:#a94105;
+    text-align:left;
+    font-family:sans-serif;
+    inline-size:300px;   /*Width*/
+    margin-inline:20px;
+}
+
+h3{
+    color:#000;
+    text-align:start;
+    margin-inline:20px;
+}
+.H3{
+    color:white; /*for the h3 in second page on bg-image*/
+}
+
+.image-bg{
+    background-image: url("../images/ew3.jpg");  /*(..) re for going back from CSS folder to first prjct folder and then again to images folder*/
+    padding:40px;  /*background-repeat can be controlled  whether no repeat or just along x-axis */
+    border: solid 3px rgb(1, 23, 26);
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size:cover;
+}
+.image-bg p {
+    color:#fff;
+}
+p{
+    font-family:Arial, Helvetica, sans-serif;
+    color:black;  
+    margin-block:10px;    /*space above and below the paragraph*/
+    margin-inline:20px;
+}
+
+/*.A is a class of p element it's done to separat every same element using different classes. 
+it allows duplicates--means many p tags can have same class bame*/
+
+/*(.) for class and (#) for IDs--should be unique for every element in a page but it can be reused across different pages*/
+
+.A{
+  color:rgb(16, 2, 2);  
+}
+
+
+.B{
+    text-align: center;
+    border: solid 3px rgb(1, 23, 26);
+    background-color: #1c5d9f;
+    padding:30px;
+}
+.B p{
+    color:#fff;
+}
+.B strong{
+    color:#592205
+}
+
+
+.C{
+    color:#165089;
+}
+
+#A1{
+    color:#161b02
+}
+
+
+ul{
+    margin-block:15px;
+    margin-inline:20px;
+    list-style:disc;
+    color:black;
+    list-style-position:outside;  /*moves the list items close from vertical heading inline (inside:moves away)*/
+
+
+}
+
+li{
+    margin-block:10px;   /*block-size:300px;--- space of blocks ---here block size remains fixed if specified;
+    no matter how big or small the content is, inside the block*/
+    /*these can be given borders as well, (border: 5px solid black;) */
+}
+ul li::marker{   /*pseudo element (::)--changes color of bullets in lists (not the text color)*/
+    /*color:#840808;*/
+    content:→;   /*changes the bullet style to anything user puts could be emoji*/
+}
+ol{
+    text-align:start;
+    margin-inline:20px;
+}
+
+h4{
+    margin-inline:20px;
+}
+
+img {
+   max-inline-size:100%; /*fixes the image align with rets of contents*/
+   display:block; 
+}
+
+/*follow the order-(link-visited-hover-active)*/
+a{
+    color:#170bbf;
+    /* If we inherit the color (color:inherit) it will inherit the color
+     from parent for eg: the link-- traditional climbing will inherit-
+     the color from paragraph and the paragraph will inherit from body */
+}
+a:visited   /*pseudo class(:)*/
+a:focus-visible{
+    color:rgb(207, 10, 225);
+}
+/* applies focus style--:applies focus styles only to help the user navigate. 
+In most cases, it triggers when someone navigates using a keyboard (like pressing the Tab key) or assistive technologies,
+ but hides the styling when someone clicks with a mouse or taps with a touchscreen*/
+a:hover{
+    color:#ac6a19;
+}
+a:active{   /* it changes color as long as the user has presses the link */
+    color:rgb(8, 29, 68);
+}
+
+
+header{
+    display:flex; /*It allows to easily align, space, and distribute items inside a container, even when their sizes are dynamic or unknown*/
+    justify-content: space-between;  /*distributes flex items evenly along the main axis,
+    pushing the first item to the very start and the last item to the very end. 
+    Any remaining empty space is split perfectly and placed between the items*/
+    gap:20px;
+}
+header img{
+    height:auto;
+    width:90px;
+}
+.primary-navigation ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+    margin:0;
+    padding:0;  
+}
+.primary-navigation a {
+    color:#161b02;
+    font-weight:bold;
+    text-decoration:none; /*removes underline*/
+
+}
+.primary-navigation a:hover,
+.primary-navigation a:focus-visible {  /*to give color as we have put text-decoration:none to make it different from other links*/
+    color:#266ae9
+}
+
+
+section{
+    /*background-color:rgb(214, 197, 177) ;*/
+    margin-block:40px;
+    /*border-style:solid; /* border-inline--for left and right border (or, start/end)and border-block--top and bottom*/
+    /*border-width:1px;    /* border-block-end-color:--allows to choose any color*/
+    /*border-color:black;*/
+    /*margin:10px-- empty space that doesn't include bg color 
+    or creates external space outside an element to push away neighbouring elements [It also can be inline or block] */
+}
+.wrapper{ /*coulde be .container*/ /*-- this behaviour is already a default so we don't need to specify it*/
+    max-inline-size:800px;   /*prevents content to be wider than mentioned pixels to enhance its aesthetics*/
+    /* border:3px dashed black; */ /*but during minimizing the page, due to inline size the contents would dissapear inside the screen so to solve it we use max-inline size */
+    margin-inline:auto;
+}
+.wrapper img{
+    height:auto;
+}
+.two-column-layout{
+    display:grid;
+    gap:40px;
+    margin-block-end:40px;
+    @media(width>720px){ /*this will prevent the image from shrinking when the screen size is reduced-- rather it stacks up the text and image when the screen is reduced*/
+        grid-template-columns: 1fr 1fr; /*1fr- 1 fraction */
+    }
+}
+
+@media(width>600px){ /*this will prevent the image from shrinking when the screen size is reduced-- rather it stacks up the text and image when the screen is reduced*/
+    .two-column-layout{
+        grid-template-columns: 1fr 1fr; /*1fr- 1 fraction */
+    }
+}
+
+
+/* Here (in footer) the paragraph is specified- for the text color 
+to be different from normal paragraph */
+footer p { 
+    background-color:#165089;
+    color:#eeeaeb;
+    text-align:center;
+    margin-block:15px;
+    padding:10px;  /*empty space all around the content including the bg color*/
+    border-bottom: solid black 2px;
+}
+/*Padding is the easiest  way to maintain spaces and it's more adaptable
+Also the content does not overlap the back ground color while minimizing the page
+which is commom with block-size*/
+/*padding-inline---adds extra space towards left and right but not on the top and below 
+Also we could add space just at start or at end (LEFT/RIGHT) by adding end or start after inline
+[padding-block-start---for top and padding-block-end---for below]
+OR, [padding: 20px('top') 30px(right) 40px(bottom) 50px(left)]--no need to specify top/left/right/bottom just mention values in px with spaces (follows clockwise from top) */
